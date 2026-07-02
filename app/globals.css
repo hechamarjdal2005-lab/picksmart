@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  PickSmart design tokens — single source of truth.
+  Every value is derived from the imported Stitch export
+  (imported/meta/design-system.md namedColors + typography).
+  Stored as HSL channels so Tailwind opacity modifiers
+  (`bg-primary-container/10`) and shadcn/ui both work.
+*/
+@layer base {
+  :root {
+    /* Font family var consumed by tailwind.config (fontFamily.sans/display).
+       Loaded via <link> in app/layout.tsx; system-ui covers a failed load. */
+    --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+
+    /* ---- Stitch raw palette ---- */
+    --surface: 19 48.7% 7.6%; /* #1d100a */
+    --surface-dim: 19 48.7% 7.6%; /* #1d100a */
+    --surface-bright: 20 20.7% 22.7%; /* #46362e */
+    --surface-container-lowest: 18 58.6% 5.7%; /* #170b06 */
+    --surface-container-low: 18 35.7% 11%; /* #261812 */
+    --surface-container: 17 32.3% 12.7%; /* #2b1c16 */
+    --surface-container-high: 19 25.6% 16.9%; /* #362720 */
+    --surface-container-highest: 18 21.5% 21%; /* #41312a */
+    --surface-variant: 18 21.5% 21%; /* #41312a */
+    --on-surface: 17 73.1% 89.8%; /* #f8ddd2 */
+    --on-surface-variant: 18 46.3% 78.8%; /* #e2bfb0 */
+    --inverse-surface: 17 73.1% 89.8%; /* #f8ddd2 */
+    --inverse-on-surface: 18 23.2% 19.4%; /* #3d2d26 */
+    --outline: 18 20.4% 57.6%; /* #a98a7d */
+    --outline-variant: 18 25% 28.2%; /* #5a4136 */
+    --surface-tint: 19 100% 78.8%; /* #ffb693 */
+    --primary: 19 100% 78.8%; /* #ffb693 */
+    --on-primary: 22 100% 16.9%; /* #561f00 */
+    --primary-container: 25 100% 50%; /* #ff6b00 */
+    --on-primary-container: 22 100% 17.1%; /* #572000 */
+    --inverse-primary: 24 100% 31.4%; /* #a04100 */
+    --secondary: 219 100% 83.1%; /* #a9c7ff */
+    --on-secondary: 211 100% 19.4%; /* #003063 */
+    --secondary-container: 214 100% 61.4%; /* #3a90ff */
+    --on-secondary-container: 212 100% 17.1%; /* #002957 */
+    --tertiary: 212 100% 80.6%; /* #9ccaff */
+    --on-tertiary: 206 100% 17.1%; /* #003257 */
+    --tertiary-container: 203 100% 51%; /* #059eff */
+    --on-tertiary-container: 205 100% 17.1%; /* #003357 */
+    --error: 6 100% 83.5%; /* #ffb4ab */
+    --on-error: 357 100% 20.6%; /* #690005 */
+    --error-container: 356 100% 28.8%; /* #93000a */
+    --on-error-container: 6 100% 92%; /* #ffdad6 */
+    --primary-fixed: 18 100% 90%; /* #ffdbcc */
+    --primary-fixed-dim: 19 100% 78.8%; /* #ffb693 */
+    --on-primary-fixed: 18 100% 10.4%; /* #351000 */
+    --on-primary-fixed-variant: 24 100% 23.9%; /* #7a3000 */
+    --secondary-fixed: 221 100% 92%; /* #d6e3ff */
+    --secondary-fixed-dim: 219 100% 83.1%; /* #a9c7ff */
+    --on-secondary-fixed: 213 100% 12%; /* #001b3d */
+    --on-secondary-fixed-variant: 210 100% 27.3%; /* #00468b */
+    --tertiary-fixed: 214 100% 90.8%; /* #d0e4ff */
+    --tertiary-fixed-dim: 212 100% 80.6%; /* #9ccaff */
+    --on-tertiary-fixed: 207 100% 10.4%; /* #001d35 */
+    --on-tertiary-fixed-variant: 204 100% 24.1%; /* #00497b */
+    --background: 19 48.7% 7.6%; /* #1d100a */
+    --on-background: 17 73.1% 89.8%; /* #f8ddd2 */
+
+    /* ---- Functional colors used directly in Stitch markup ---- */
+    --success: 142 70.6% 45.3%; /* #22c55e — Pros checkmark */
+    --deal: 0 84.2% 60.2%; /* #ef4444 — Deal badge */
+    --white: 0 0% 100%; /* #ffffff — text on color badges */
+
+    /* ---- shadcn/ui semantic aliases (mapped onto Stitch palette) ---- */
+    --foreground: 17 73.1% 89.8%; /* on-surface */
+    --card: 17 32.3% 12.7%; /* surface-container */
+    --card-foreground: 17 73.1% 89.8%;
+    --popover: 19 25.6% 16.9%; /* surface-container-high */
+    --popover-foreground: 17 73.1% 89.8%;
+    --primary-foreground: 22 100% 17.1%; /* on-primary-container */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 19 25.6% 16.9%; /* surface-container-high */
+    --muted-foreground: 18 46.3% 78.8%; /* on-surface-variant */
+    --accent: 18 21.5% 21%; /* surface-variant */
+    --accent-foreground: 17 73.1% 89.8%;
+    --destructive: 0 84.2% 60.2%; /* deal red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 18 25% 28.2%; /* outline-variant */
+    --input: 18 25% 28.2%;
+    --ring: 214 100% 61.4%; /* secondary-container — focus = blue per spec */
+
+    /* ---- Radii (Stitch `rounded` scale) ---- */
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface-container-lowest text-on-surface antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  /* Visible focus ring for every interactive element (a11y pass) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-secondary-container ring-offset-2 ring-offset-surface-container-lowest;
+  }
+  /* Selection matches brand */
+  ::selection {
+    @apply bg-primary-container text-on-primary-container;
+  }
+  /* Scrollbar — ported from imported <style> blocks as tokens */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-container-lowest;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded bg-surface-container-highest;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-container;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  /* Glassmorphism nav — ported from .glass-nav */
+  .glass-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Material Symbols — single icon system, loaded once in layout (audit 1.2/11.4) */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+.material-symbols-outlined[data-fill="1"] {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/*
+  Reduced-motion guardrail. Framer Motion variants are also gated with
+  useReducedMotion(); this is the CSS-level backstop for any transition.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

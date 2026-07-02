@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PickSmart | Expert Product Reviews &amp; Comparisons</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0A0A0F;
+            color: #f8ddd2;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .product-card-glow:hover {
+            box-shadow: 0px 0px 15px rgba(255, 107, 0, 0.15);
+            border-color: #ff6b00;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #170b06;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #41312a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff6b00;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#46362e",
+                      "on-tertiary-container": "#003357",
+                      "on-error-container": "#ffdad6",
+                      "on-primary": "#561f00",
+                      "primary-container": "#ff6b00",
+                      "surface": "#1d100a",
+                      "primary": "#ffb693",
+                      "surface-dim": "#1d100a",
+                      "on-secondary-container": "#002957",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#059eff",
+                      "on-primary-fixed-variant": "#7a3000",
+                      "primary-fixed": "#ffdbcc",
+                      "surface-container-high": "#362720",
+                      "outline-variant": "#5a4136",
+                      "tertiary-fixed-dim": "#9ccaff",
+                      "error": "#ffb4ab",
+                      "on-background": "#f8ddd2",
+                      "inverse-primary": "#a04100",
+                      "secondary-fixed": "#d6e3ff",
+                      "surface-container-lowest": "#170b06",
+                      "on-tertiary-fixed-variant": "#00497b",
+                      "surface-container": "#2b1c16",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#a9c7ff",
+                      "on-primary-container": "#572000",
+                      "surface-tint": "#ffb693",
+                      "on-secondary-fixed-variant": "#00468b",
+                      "on-secondary": "#003063",
+                      "on-surface": "#f8ddd2",
+                      "secondary": "#a9c7ff",
+                      "tertiary": "#9ccaff",
+                      "on-secondary-fixed": "#001b3d",
+                      "surface-variant": "#41312a",
+                      "on-primary-fixed": "#351000",
+                      "on-tertiary": "#003257",
+                      "inverse-on-surface": "#3d2d26",
+                      "surface-container-low": "#261812",
+                      "primary-fixed-dim": "#ffb693",
+                      "surface-container-highest": "#41312a",
+                      "on-surface-variant": "#e2bfb0",
+                      "outline": "#a98a7d",
+                      "secondary-container": "#3a90ff",
+                      "tertiary-fixed": "#d0e4ff",
+                      "on-tertiary-fixed": "#001d35",
+                      "inverse-surface": "#f8ddd2",
+                      "background": "#1d100a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "16px",
+                      "container-max": "1280px",
+                      "base": "4px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "gutter": "24px",
+                      "xs": "8px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0", "fontWeight": "400"}],
+                      "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.7", "letterSpacing": "0", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-[72px] bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant z-50">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-md">
+<img alt="PickSmart Logo" class="h-8 w-auto" src="data:image/png;base64,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"/>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Categories</a>
+<a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Reviews</a>
+<a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Deals</a>
+<a class="font-body-md text-body-md text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">About</a>
+</nav>
+<div class="flex items-center gap-md">
+<div class="hidden lg:flex items-center bg-surface-container-high rounded-full px-4 py-2 border border-outline-variant w-64 focus-within:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm font-body-sm w-full placeholder:text-on-surface-variant" placeholder="Search products..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-label-md text-label-md font-bold active:scale-95 transition-transform">
+                    Top Picks
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-[72px]">
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex items-center overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-xl items-center w-full">
+<div class="z-10">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter mb-sm">
+                        Find the Best Products. <span class="text-primary-container">Every Time.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-xl">
+                        Expert reviews &amp; honest comparisons powered by real testing. We buy everything ourselves so you don't have to guess.
+                    </p>
+<div class="flex flex-wrap gap-md">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:brightness-110 transition-all">
+                            Explore Top Picks
+                        </button>
+<button class="border border-secondary-container text-secondary-container px-8 py-4 rounded-lg font-label-md text-label-md font-bold hover:bg-secondary-container/10 transition-all">
+                            Browse Categories
+                        </button>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="absolute -top-20 -right-20 w-80 h-80 bg-primary-container/20 blur-[100px] rounded-full"></div>
+<div class="product-card-glow relative bg-surface-container-high border border-outline-variant rounded-xl p-6 transition-all duration-300 transform rotate-2 hover:rotate-0 hover:scale-105">
+<div class="aspect-video rounded-lg overflow-hidden mb-md bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A high-end cinematic product shot of a 34-inch ultra-wide curved gaming monitor on a minimalist dark desk. The screen displays a vibrant, high-contrast landscape game. The environment is lit with subtle orange and blue ambient lighting, reflecting off the sleek black finish of the monitor. The atmosphere is professional, tech-focused, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4-Uy9_H1vlytF4yY6aWHwc1_LOSJYvrMNebhIf7FgxJ3zuoDWsplzmP8BlMAwteU1xrlNBT7AoPVvcJw6Px4XHfxq_wWmJF9NJzDkjiuKF_ExfYHlZepjqLmgiKpD9Fxb2fEGt1bxCvwAzEDtK-zwN4ICvcDrztHZJCM3GOkNMcb3QaLhTkoa8TGsqBG3lh7wLF9wf5HyITAdTJSTp1yTC1NlNDwlIlkoJVBeLrBVNxXL2xKJyzpzeHSrJsXkjV_cG64Uz4hqvg"/>
+</div>
+<div class="flex justify-between items-start mb-xs">
+<span class="bg-secondary-container text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Amazon Choice</span>
+<div class="flex items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-body-sm">4.9</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-xs">Ultra-Wide Gaming Monitor</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">34" Curved, 144Hz Refresh Rate, 1ms Response Time.</p>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-on-surface">$799.00</span>
+<button class="text-primary-container flex items-center gap-1 font-label-md text-label-md hover:underline">
+                                View Specs <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Pills -->
+<section class="py-md border-y border-outline-variant bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex gap-sm overflow-x-auto no-scrollbar pb-2">
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap">Electronics</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Kitchen</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Fitness</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Beauty</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Home</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Tech</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Gaming</button>
+<button class="bg-surface-container-highest text-on-surface-variant px-6 py-2.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Outdoor</button>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-xs">Today's Featured Picks</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Hand-tested recommendations across our top categories.</p>
+</div>
+<a class="text-primary-container font-label-md text-label-md flex items-center gap-1 hover:underline" href="#">
+                        View All Picks <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<div class="product-card-glow bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col transition-all duration-300">
+<div class="relative aspect-square rounded-lg overflow-hidden mb-md bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Premium studio product photograph of Sony WH-1000XM5 wireless noise-canceling headphones in matte black. The lighting is soft and moody, highlighting the smooth texture of the ear cups and the refined headband design. Deep black background with a subtle orange rim light to create depth. Sharp focus on the Sony logo detailing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-BOAKMQ75p2feplXhc_fKuluut-rQxxwZTI7JdFrc24t6s9b-g8rby4mgUCrFl_Du52LJ_ofxuALvQozuuk8rbyOz3CZHn0MoT1dVtcOmJ1y0qS8Mj5Mu2gpCFZxsoEgAUOlslqSb7u7_wg___19rR0iW9dexzkPYk5keO63CLku8dRXABJbSRlvx__Y4B8wjXsdDtWfWFSs1NhIFo-xR9T34ap5xwqZvmpKmwBbZueKxxxfA4xP02stmVyuAX8H1tjm2X1dVdw"/>
+<span class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded font-label-md text-label-md">Best Pick</span>
+</div>
+<div class="flex items-center gap-1 text-primary-container mb-xs">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-xs">Sony WH-1000XM5</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md flex-grow">Industry-leading noise cancellation and crystal-clear calls with premium audio performance.</p>
+<div class="font-headline-md text-headline-md mb-md">$348.00</div>
+<div class="grid grid-cols-2 gap-sm">
+<button class="border border-outline-variant text-on-surface px-4 py-2.5 rounded font-label-md text-label-md hover:bg-surface-variant transition-all">Read Review</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2.5 rounded font-label-md text-label-md font-bold hover:brightness-110 transition-all">Amazon</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="product-card-glow bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col transition-all duration-300">
+<div class="relative aspect-square rounded-lg overflow-hidden mb-md bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist kitchen setting featuring a KitchenAid Artisan Mixer in a sophisticated matte charcoal finish. The mixer is set against a dark marble backsplash with warm under-cabinet lighting. The shot captures the polished stainless steel bowl and the iconic mixer silhouette. High-end, luxury appliance photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB0jAdMvlrnAfnW_O0rhIHokQvEyYdwo4iuxVTycH-DSbqpXMcQ-sk6m9w6LZVSxs3QrB6gHZ7Ny2vaeEbiI9kqtZaefpDlkPoAGpmgji4yEOlqZHLq2OaiOkh2Qt5u3HHRAYzooAhDnxELXU1n2ilxblhRiTVRTAQ7I3kyj2YX4dTFn7fAATkQHWgPHAwhR-RH-y9u97m98FBSogQrMJ0czE2c8S-lCi8aYKYZRN-zeb3XxF-QiYS3lyMzSnGaRjjBcuPflha-Q"/>
+<span class="absolute top-4 left-4 bg-secondary-container text-white px-3 py-1 rounded font-label-md text-label-md">Amazon Choice</span>
+</div>
+<div class="flex items-center gap-1 text-primary-container mb-xs">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-xs">KitchenAid Artisan Mixer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md flex-grow">The gold standard for home bakers, offering durability and unmatched versatility for every recipe.</p>
+<div class="font-headline-md text-headline-md mb-md">$449.99</div>
+<div class="grid grid-cols-2 gap-sm">
+<button class="border border-outline-variant text-on-surface px-4 py-2.5 rounded font-label-md text-label-md hover:bg-surface-variant transition-all">Read Review</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2.5 rounded font-label-md text-label-md font-bold hover:brightness-110 transition-all">Amazon</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="product-card-glow bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col transition-all duration-300">
+<div class="relative aspect-square rounded-lg overflow-hidden mb-md bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Professional architectural photography of a Herman Miller Aeron office chair in a modern, dark home office environment. The lighting emphasizes the Pellicle mesh material and the ergonomic structural frame. The background features soft bokeh of a high-tech desk setup. The color palette is composed of cool grays, deep blacks, and subtle blue lighting accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYW5pStmXvDuc8EKrGZOf8pl34cMjRYEnkoL6zZaIWUeoDedRVZn3C7m6l16nzSaP2aHQYUAXuOcq8mxfxOV1akO3aedcCmYbH9NyrgaZk-24n6zJuFpAinosa-cnd5rfsOAqA-mmNgQJ_x5t8mD3chFWgUxhh-s_MVoYqfrUIO_8yQEyVC0XSgfZ7F0xFYjYcZuzjy0AvjdElQKBi3595LzZ1wM2grnYSlCBtYpCuDTk1VxMWyn1MpO2dAWerh4jlL2zznNCqvA"/>
+</div>
+<div class="flex items-center gap-1 text-primary-container mb-xs">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-xs">Herman Miller Aeron</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md flex-grow">The ultimate ergonomic office chair designed for comfort, breathability, and long-term spinal health.</p>
+<div class="font-headline-md text-headline-md mb-md">$1,600.00</div>
+<div class="grid grid-cols-2 gap-sm">
+<button class="border border-outline-variant text-on-surface px-4 py-2.5 rounded font-label-md text-label-md hover:bg-surface-variant transition-all">Read Review</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2.5 rounded font-label-md text-label-md font-bold hover:brightness-110 transition-all">Amazon</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Trust Us -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg mb-xs">Why PickSmart?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">We cut through the noise with data-driven testing and unbiased editorial integrity.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="p-lg bg-surface-container-lowest border border-outline-variant rounded-xl text-center">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto mb-md">
+<span class="material-symbols-outlined text-primary-container text-4xl">hardware</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-xs">Tested Hands-On</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Every product we recommend goes through our rigorous lab testing and real-world usage protocols.</p>
+</div>
+<div class="p-lg bg-surface-container-lowest border border-outline-variant rounded-xl text-center">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto mb-md">
+<span class="material-symbols-outlined text-primary-container text-4xl">verified</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-xs">No Sponsored Content</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Our reviews are 100% independent. Brands cannot pay for positive reviews or placement on our lists.</p>
+</div>
+<div class="p-lg bg-surface-container-lowest border border-outline-variant rounded-xl text-center">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto mb-md">
+<span class="material-symbols-outlined text-primary-container text-4xl">update</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-xs">Updated Weekly</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The market moves fast. We update our guides weekly to ensure you're always getting the best available value.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Latest Reviews -->
+<section class="py-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter">
+<h2 class="font-headline-lg text-headline-lg mb-lg">Latest Editorial Reviews</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<!-- Review Card 1 -->
+<div class="group flex flex-col md:flex-row bg-surface-container border border-outline-variant rounded-xl overflow-hidden hover:border-primary-container transition-all">
+<div class="md:w-1/2 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A collection of top-rated wireless earbuds arranged artistically on a textured black slate surface. The shot uses shallow depth of field, focusing on one earbud while others blur into a clean background. High-key metallic highlights and a soft warm glow create a premium editorial look for a tech review. Contemporary and sharp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc51DI4CGjU3yppwW4qxDE5UE7veEKuE7QtV0QaNG4vdyc3f3X1pF-blP1ojg8jfNdmQcbzcSs2dJueQmDsJTCqexJTaZc43ijJG95FwHVwjE1A8Oi5Wlcz7cWy3wZ9jK1lWuuk4c4dC1VVEzVITD8dXmtVmcSIF-Y3gQswF_FYcYNEZ2bwLDy7b3Ai7ncHXYLeoTsIUghs0LkZHLdA_Z0nU4w7n0rPGlUo6uJhWjZwwpE172Evl2KIDQNYKynVxm4zWurewM-rw"/>
+</div>
+<div class="p-md md:w-1/2 flex flex-col justify-center">
+<span class="font-label-md text-label-md text-primary-container mb-xs uppercase tracking-widest">Buying Guide</span>
+<h3 class="font-headline-sm text-headline-sm mb-sm group-hover:text-primary transition-colors">The Best Wireless Earbuds of 2024</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">We compared ANC, sound stage, and battery life on 15 of the year's biggest releases.</p>
+<a class="font-label-md text-label-md font-bold flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Read Guide <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="group flex flex-col md:flex-row bg-surface-container border border-outline-variant rounded-xl overflow-hidden hover:border-primary-container transition-all">
+<div class="md:w-1/2 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-contrast culinary photo of a modern digital air fryer on a dark kitchen counter. Crispy golden fries are shown inside the illuminated basket. The steam rising is captured with fast shutter speed against a dark background. Professional food technology photography with warm highlights and deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEe6i5ig_xqC2A1WNgijuE3NLRnU9hkmbJsDxqxsJfOv4XejEXWRWfMpZEkJYx_Tac6oQGmQyzjqT9LD80wGvhfVly3i0LTwPtc7n0EwRGcDtdY9meN2a7NRLDu-p7wOk7h7DlqgnFeDQSgyae3wApWdBibsQIAXZvVvo8GKPHNPa1Oi0skGfZ3HaHAn9kXiO1qvrEqqVSCpbAG5x-si-5ifbYFvMoaKFc0IMrkAdeGjc2flIKsqt7oZX5etHZcy2GMRQhFQY5_g"/>
+</div>
+<div class="p-md md:w-1/2 flex flex-col justify-center">
+<span class="font-label-md text-label-md text-primary-container mb-xs uppercase tracking-widest">Kitchen Review</span>
+<h3 class="font-headline-sm text-headline-sm mb-sm group-hover:text-primary transition-colors">Top 5 Air Fryers Reviewed: Crispy &amp; Clean</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">From compact models to family-sized dual baskets, here's what really works.</p>
+<a class="font-label-md text-label-md font-bold flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Read Review <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Banner -->
+<section class="py-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="bg-surface-container-low border-l-8 border-primary-container p-lg rounded-xl flex flex-col md:flex-row justify-between items-center gap-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-xs">Get Weekly Deals in Your Inbox</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">The best discounts, price drops, and editorial picks delivered every Friday.</p>
+</div>
+<div class="flex w-full md:w-auto gap-sm">
+<input class="bg-surface-container-highest border-outline-variant rounded-lg px-md py-3 text-on-surface focus:border-secondary-container focus:ring-0 w-full md:w-64" placeholder="Enter your email" type="email"/>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-lg font-label-md text-label-md font-bold whitespace-nowrap active:scale-95 transition-transform">
+                            Join Now
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-gutter max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="space-y-md">
+<img alt="PickSmart Logo" class="h-8 w-auto" src="data:image/png;base64,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"/>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    PickSmart is your go-to destination for professional, unbiased product reviews and expert recommendations. We test, you choose.
+                </p>
+<div class="flex gap-sm">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+</div>
+</div>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-md">Company</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Editorial Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Contact</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Careers</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-md">Shopping</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Best Picks</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Amazon Choices</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Deals</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Coupons</a></li>
+</ul>
+</div>
+<!-- Links Column 3 -->
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-md">Legal</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Privacy</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Terms</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Cookies</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Affiliate Info</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-lg pt-lg border-t border-outline-variant/30 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 italic mb-md">
+                © 2024 PickSmart. All rights reserved. Affiliate Disclosure: We may earn commissions from qualifying purchases made through our links, at no extra cost to you. This helps support our independent testing lab.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interactions and scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Add hover interaction for categories
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                if(!btn.classList.contains('active:scale-95')) {
+                    btn.style.transform = 'translateY(-1px)';
+                }
+            });
+            btn.addEventListener('mouseleave', () => {
+                if(!btn.classList.contains('active:scale-95')) {
+                    btn.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,57 @@
+{
+  "source": "Stitch MCP",
+  "importedAt": "2026-06-11",
+  "project": {
+    "name": "projects/6509427035691631948",
+    "id": "6509427035691631948",
+    "title": "PickSmart Affiliate Review Platform",
+    "projectType": "TEXT_TO_UI_PRO",
+    "deviceType": "DESKTOP",
+    "origin": "STITCH",
+    "visibility": "PRIVATE",
+    "createTime": "2026-06-11T21:25:20.145462Z",
+    "updateTime": "2026-06-11T21:29:50.092940Z",
+    "designTheme": {
+      "colorMode": "DARK",
+      "overridePrimaryColor": "#ff6b00",
+      "overrideSecondaryColor": "#2d8cff",
+      "bodyFont": "Inter",
+      "headlineFont": "Inter",
+      "roundness": "ROUND_EIGHT"
+    }
+  },
+  "screens": [
+    {
+      "id": "57917ee379e04feda3f7d481efa5444c",
+      "title": "PickSmart - Expert Product Reviews (Home)",
+      "file": "screens/home-picksmart-expert-reviews.html",
+      "width": 1280,
+      "height": 7676,
+      "deviceType": "DESKTOP"
+    },
+    {
+      "id": "29cb96d89463430f838b3a6c60ea7093",
+      "title": "Best Electronics (Category)",
+      "file": "screens/best-electronics.html",
+      "width": 1280,
+      "height": 4480,
+      "deviceType": "DESKTOP"
+    },
+    {
+      "id": "aaa45411c61940c29e6ad94194f500ba",
+      "title": "Sony WH-1000XM5 Review (Detail)",
+      "file": "screens/sony-wh1000xm5-review.html",
+      "width": 1280,
+      "height": 8520,
+      "deviceType": "DESKTOP"
+    },
+    {
+      "id": "e293d9c2bda64d1093adb5b55cb5f62b",
+      "title": "PickSmart Logo",
+      "file": "assets/picksmart-logo.svg",
+      "width": 200,
+      "height": 50,
+      "type": "SVG_ASSET"
+    }
+  ]
+}
